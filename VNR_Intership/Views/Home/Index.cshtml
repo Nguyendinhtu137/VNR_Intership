@@ -1,0 +1,31 @@
+﻿@model VNR_Intership.Models.KhoaHocModel
+
+@{
+    ViewBag.Title = "Danh sách khóa học";
+}
+
+<p style="font-size:28px">Khóa Học</p>
+
+<div class="container fs-2 ">
+    @foreach (var item in Model.KhoaHocs)
+    {
+        <ul>
+            <li>
+                @Html.ActionLink(@item.TenKhoaHoc, "Index", "Home", new { id = item.ID }, new { style = "text-decoration:none;" })
+            </li>
+        </ul>
+    }
+</div>
+<p style="font-size:17px">@Model.Tenkhoahoc</p>
+@{int stt = 0;}
+@foreach (var item in Model.MonHocs)
+{
+    <ul class="fs-2" style=" list-style: none">
+        <li>
+            @{stt++;} @stt.@Html.DisplayFor(modelItem => item.TenMonHoc)
+        </li>
+    </ul>
+}
+
+
+
